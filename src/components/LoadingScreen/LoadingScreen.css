@@ -1,0 +1,337 @@
+/* JetBrains Mono is imported globally in index.css */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #0D1117;
+
+    z-index: 9999;
+    will-change: opacity, transform;
+}
+
+.loading-window {
+    width: min(900px, 92vw);
+    height: min(620px, 80vh);
+
+    background: #161B22;
+    border: 1px solid #30363D;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, .55);
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .55);
+    }
+
+    50% {
+        box-shadow:
+            0 20px 70px rgba(34, 197, 94, .15),
+            0 20px 60px rgba(0, 0, 0, .55);
+    }
+}
+
+/* ===========================
+   TITLE BAR
+=========================== */
+
+.title-bar {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+
+    background: #21262D;
+    border-bottom: 1px solid #30363D;
+}
+
+.window-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-buttons span {
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+}
+
+.red {
+    background: #FF5F56;
+}
+
+.yellow {
+    background: #FFBD2E;
+}
+
+.green {
+    background: #27C93F;
+}
+
+.editor-tabs {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    margin-left: 28px;
+}
+
+.tab {
+    color: #C9D1D9;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+}
+
+.brand {
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.95rem;
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+.editor-layout {
+    display: flex;
+    height: calc(100% - 42px);
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar {
+    width: 180px;
+
+    background: #0D1117;
+
+    border-right: 1px solid #30363D;
+
+    padding: 16px;
+}
+
+.explorer-title {
+    color: #8B949E;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.folder,
+.file {
+    color: #C9D1D9;
+
+    margin: 12px 0;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+
+    transition: .25s;
+}
+
+.active-file {
+    color: #22C55E;
+}
+
+/* ===========================
+   EDITOR
+=========================== */
+
+.editor {
+    flex: 1;
+
+    background: #161B22;
+
+    padding: 24px;
+}
+
+.editor-code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.editor-code p {
+    margin: 0;
+}
+
+.keyword {
+    color: #C678DD;
+}
+
+.variable {
+    color: #61AFEF;
+}
+
+.string {
+    color: #98C379;
+}
+
+/* ===========================
+   TERMINAL
+=========================== */
+
+.terminal {
+
+    height: 285px;
+
+    margin-top: 18px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+
+    padding-right: 10px;
+
+}
+
+.terminal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+    background: #30363D;
+    border-radius: 999px;
+}
+
+.terminal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.log {
+    margin: 8px 0;
+
+    animation: logAppear .25s ease forwards;
+}
+
+.done {
+    color: #22C55E;
+    opacity: .65;
+}
+
+.active {
+    color: white;
+
+    text-shadow:
+        0 0 8px rgba(34, 197, 94, .35);
+}
+
+/* ===========================
+   PROGRESS
+=========================== */
+
+.progress-container {
+
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+}
+
+.progress-bar {
+
+    flex: 1;
+
+    height: 6px;
+
+    background: #30363D;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+
+    height: 100%;
+
+    background: linear-gradient(90deg,
+            #22C55E,
+            #4ADE80);
+
+}
+
+.progress-percent {
+
+    width: 42px;
+
+    text-align: right;
+
+    color: white;
+
+    font-family: "JetBrains Mono", monospace;
+
+    font-size: 16px;
+
+}
+
+/* ===========================
+   CURSOR
+=========================== */
+
+.cursor {
+
+    display: inline-block;
+
+    color: #22C55E;
+
+    margin-left: 2px;
+
+    animation: blink .8s infinite;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes blink {
+
+    50% {
+        opacity: 0;
+    }
+
+}
+
+@keyframes logAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
