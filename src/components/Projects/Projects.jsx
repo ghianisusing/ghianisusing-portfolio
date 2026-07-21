@@ -1,5 +1,6 @@
 import "./Projects.css";
-import { useState } from "react";
+import { createPortal } from "react-dom";
+import { useState, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt, FaTimes } from "react-icons/fa";
 import { SiReact, SiDjango, SiPhp, SiMysql, SiPostgresql, SiHtml5, SiCss, SiJavascript } from "react-icons/si";
 
@@ -34,6 +35,17 @@ const projectsData = [
 
 function Projects() {
     const [selected, setSelected] = useState(null);
+
+    useEffect(() => {
+        if (selected !== null) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [selected]);
 
     const openModal = (index) => setSelected(index);
     const closeModal = () => setSelected(null);
@@ -84,8 +96,8 @@ function Projects() {
                 </div>
             </div>
 
-            {/* Modal Overlay */}
-            {selected !== null && (
+            {/* Modal Overlay via Portal for perfect fixed centering */}
+            {selected !== null && createPortal(
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="modal-close" onClick={closeModal}>
@@ -135,7 +147,8 @@ function Projects() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </section>
     );

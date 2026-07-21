@@ -1,4 +1,7 @@
 import "./Skills.css";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { FaTimes } from "react-icons/fa";
 
 import {
     SiReact,
@@ -30,39 +33,68 @@ const technologies = [
 ];
 
 function Skills() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isModalOpen]);
+
     return (
         <section className="skills" id="skills">
-
             <div className="skills-container">
-
-                <h2 className="section-title scroll-reveal">
-                    Technologies & Tools
-                </h2>
-
-
-                <div className="tech-grid scroll-reveal-stagger">
-
-                    {technologies.map((tech) => (
-
-                        <div
-                            className="tech-card"
-                            key={tech.name}
-                        >
-
-                            <span className="tech-icon">
-                                {tech.icon}
-                            </span>
-
-                            <span>{tech.name}</span>
-
-                        </div>
-
-                    ))}
-
+                <div className="skills-header scroll-reveal">
+                    <h2 className="section-title">Technologies & Tools</h2>
+                    <button className="see-all-btn" onClick={() => setIsModalOpen(true)}>
+                        See All
+                    </button>
                 </div>
 
+                {/* Infinite Marquee Loop */}
+                <div className="marquee-wrapper scroll-reveal">
+                    <div className="marquee-content">
+                        {/* Render the array twice to create an infinite scroll illusion */}
+                        {[...technologies, ...technologies].map((tech, i) => (
+                            <div className="tech-card-marquee" key={i}>
+                                <span className="tech-icon">{tech.icon}</span>
+                                <span>{tech.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
 
+            {/* Modal for all tools */}
+            {isModalOpen && createPortal(
+                <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
+                    <div className="modal-content skills-modal" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={() => setIsModalOpen(false)}>
+                            <FaTimes />
+                        </button>
+                        
+                        <div className="skills-modal-header">
+                            <h2>All Technologies & Tools</h2>
+                            <p>My complete tech stack</p>
+                        </div>
+
+                        <div className="tech-grid">
+                            {technologies.map((tech) => (
+                                <div className="tech-card" key={tech.name}>
+                                    <span className="tech-icon">{tech.icon}</span>
+                                    <span>{tech.name}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>,
+                document.body
+            )}
         </section>
     );
 }

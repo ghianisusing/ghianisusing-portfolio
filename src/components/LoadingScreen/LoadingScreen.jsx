@@ -76,21 +76,35 @@ function LoadingScreen({ finishLoading }) {
 
                 clearInterval(interval);
 
-                gsap.timeline()
-                    .to(".loading-window", {
-                        scale: 0.92,
-                        opacity: 0.6,
-                        duration: 0.4,
-                        ease: "power2.inOut"
-                    })
-                    .to(".loading-screen", {
-                        opacity: 0,
-                        scale: 1.05,
-                        duration: 1,
-                        ease: "power2.inOut",
-                        onComplete: finishLoading
-                    }, "-=0.2");
+                const tl = gsap.timeline();
 
+                // Shrink and fade the terminal window first
+                tl.to(".loading-window", {
+                    scale: 0.8,
+                    opacity: 0,
+                    duration: 0.4,
+                    ease: "power2.inOut"
+                })
+                // Then shatter the background pixel grid!
+                .to(".pixel-block", {
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: {
+                        amount: 0.8,
+                        from: "random"
+                    },
+                    ease: "power2.inOut"
+                }, "-=0.1")
+                // Reveal main layout concurrently
+                .fromTo(".main-layout", {
+                    opacity: 0
+                }, {
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    onComplete: finishLoading
+                }, "-=1.0"); // Align with the start of the pixel dissolve
             }
 
         }, 50);
@@ -99,33 +113,31 @@ function LoadingScreen({ finishLoading }) {
 
     }, [finishLoading]);
 
-    return (
+    // Generate 100 blocks for a 10x10 grid
+    const pixels = Array.from({ length: 100 });
 
+    return (
         <div className="loading-screen" ref={screenRef}>
+            <div className="pixel-grid">
+                {pixels.map((_, i) => (
+                    <div key={i} className="pixel-block"></div>
+                ))}
+            </div>
 
             <div className="loading-window">
-
                 <TitleBar />
-
                 <div className="editor-layout">
-
                     <SideBar />
-
                     <Editor
                         progress={progress}
                         currentStep={currentStep}
                         steps={steps}
                         logs={logs}
                     />
-
                 </div>
-
             </div>
-
         </div>
-
     );
-
 }
 
 export default LoadingScreen;

@@ -4,9 +4,8 @@
 }
 
 .contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -14,43 +13,45 @@
 .contact-info {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 750px;
 }
 
 .info-card {
   background: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 36px;
+  padding: 48px;
   height: 100%;
 }
 
 .info-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   color: var(--text-main);
 }
 
 .info-card p {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 30px;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
   line-height: 1.6;
 }
 
 .info-items {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   background: rgba(30, 41, 59, 0.3);
   border: 1px solid var(--border-color);
-  padding: 16px 20px;
-  border-radius: 12px;
+  padding: 24px 30px;
+  border-radius: 14px;
   transition: all 0.3s ease;
 }
 
@@ -61,15 +62,15 @@
 }
 
 .info-icon {
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
   background: rgba(59, 130, 246, 0.1);
   color: var(--accent-blue);
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   transition: all 0.3s ease;
 }
 

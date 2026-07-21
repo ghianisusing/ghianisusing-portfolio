@@ -11,7 +11,7 @@ function About() {
                 </h2>
 
                 <p className="about-text scroll-reveal">
-                    I'm currently a <strong>BS Computer Science student</strong> with a passion for full-stack web development.
+                    I'm a <strong>BS Computer Science student</strong> with a passion for full-stack web development.
                     I enjoy building modern, responsive applications using React, Django, JavaScript, and Python, and I'm always eager
                     to learn new technologies and improve my skills.
                 </p>
