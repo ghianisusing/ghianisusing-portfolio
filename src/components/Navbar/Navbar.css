@@ -7,23 +7,28 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 8%;
-  background: rgba(7, 10, 19, 0.8);
+  background: var(--navbar-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* Logo */
 .logo {
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--accent-green);
+  color: var(--text-main);
   cursor: pointer;
   letter-spacing: -0.5px;
-  text-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
   text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Navigation Links */
@@ -49,7 +54,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent-green);
+  background: var(--text-main);
   transition: width 0.3s ease;
 }
 
@@ -61,16 +66,56 @@
   width: 100%;
 }
 
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px var(--shadow-neon);
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--text-main);
+  transform: scale(1.08) rotate(15deg);
+}
+
+.sun-icon {
+  color: #F59E0B;
+}
+
+.moon-icon {
+  color: var(--text-main);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 5%;
+  }
+  .nav-right {
+    gap: 1.2rem;
   }
   .nav-links {
     gap: 1.2rem;
   }
   .nav-links a {
     font-size: 0.85rem;
+  }
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
   }
 }
 
@@ -81,10 +126,18 @@
   .logo {
     font-size: 1.1rem;
   }
-  .nav-links {
+  .nav-right {
     gap: 0.8rem;
   }
+  .nav-links {
+    gap: 0.6rem;
+  }
   .nav-links a {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
+  }
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
   }
 }

@@ -23,9 +23,9 @@
 
 .cert-card:hover {
   transform: translateY(-5px);
-  border-color: var(--accent-green);
+  border-color: var(--text-main);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3),
-              0 0 12px rgba(34, 197, 94, 0.08);
+              0 0 12px var(--shadow-neon);
 }
 
 .cert-image-wrapper {
@@ -83,7 +83,7 @@
 }
 
 .cert-empty:hover {
-  border-color: rgba(34, 197, 94, 0.25);
+  border-color: var(--border-hover);
 }
 
 .cert-empty-icon {

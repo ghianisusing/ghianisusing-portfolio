@@ -39,9 +39,9 @@
 
 .about-card:hover {
   transform: translateY(-6px);
-  border-color: var(--accent-green);
+  border-color: var(--text-main);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3),
-              0 0 15px rgba(34, 197, 94, 0.1);
+              0 0 15px var(--shadow-neon);
 }
 
 .about-card h3 {

@@ -10,9 +10,19 @@ import Projects from "./components/Projects/Projects";
 import Certificates from "./components/Certificates/Certificates";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import PageFlipOverlay from "./components/PageFlip/PageFlipOverlay";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
+  const [isFlipping, setIsFlipping] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     if (loading) {
@@ -25,10 +35,26 @@ function App() {
     };
   }, [loading]);
 
+  const handleToggleTheme = () => {
+    if (isFlipping) return;
+    setIsFlipping(true);
+
+    // Halfway through 3D flip (300ms), switch theme
+    setTimeout(() => {
+      setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+    }, 300);
+
+    // After animation finishes (600ms), reset flip state
+    setTimeout(() => {
+      setIsFlipping(false);
+    }, 600);
+  };
+
   return (
     <>
+      <PageFlipOverlay isFlipping={isFlipping} />
       <div className="main-layout">
-        <Navbar />
+        <Navbar theme={theme} onToggleTheme={handleToggleTheme} />
         <Hero />
         <About />
         <Skills />

@@ -7,11 +7,9 @@ function Hero() {
         <section className="hero" id="home">
             <div className="hero-container">
                 <div className="hero-content">
-                    <p className="greeting">👋 Hi, I'm</p>
-                    
                     <div className="hero-header">
                         <div className="profile-wrapper">
-                            {/* Stylish CSS Avatar fallback in case /profile.png is missing */}
+                            {/* Stylish CSS Avatar fallback */}
                             <div className="avatar-fallback">
                                 <span>GA</span>
                             </div>

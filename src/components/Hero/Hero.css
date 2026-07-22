@@ -2,20 +2,20 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-              var(--bg-main);
+  background: var(--bg-main);
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(var(--border-color) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
   background-size: 50px 50px;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -33,19 +33,10 @@
   align-items: flex-start;
 }
 
-.greeting {
-  color: var(--accent-green);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
-}
-
 .hero-header {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
@@ -59,74 +50,52 @@
 }
 
 .avatar-fallback {
-  width: 110px;
-  height: 110px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-hover) 100%);
+  background: var(--bg-card);
   border: 2px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
-              0 0 20px rgba(34, 197, 94, 0.1);
+  box-shadow: 0 8px 24px var(--shadow-neon);
   position: relative;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-}
-
-.avatar-fallback::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
-  z-index: -1;
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
 }
 
 .avatar-fallback span {
   font-family: 'Silkscreen', sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--text-main);
-  background: linear-gradient(135deg, var(--text-main), var(--accent-green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -2px;
-  transition: all 0.5s ease;
+  letter-spacing: -1px;
+  transition: all 0.3s ease;
 }
 
 .profile-wrapper:hover .avatar-fallback {
-  transform: scale(1.05) rotate(5deg);
-  border-color: var(--accent-green);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
-              0 0 30px rgba(34, 197, 94, 0.3);
-}
-
-.profile-wrapper:hover .avatar-fallback::before {
-  opacity: 1;
+  transform: scale(1.05);
+  border-color: var(--text-main);
+  box-shadow: 0 12px 30px var(--shadow-neon);
 }
 
 .hero-titles h1 {
-  font-size: 3.8rem;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-  margin-bottom: 0.4rem;
-  background: linear-gradient(to right, var(--text-main) 40%, var(--text-muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 0.3rem;
+  color: var(--text-main);
 }
 
 .hero-titles h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
-  color: var(--accent-blue);
-  letter-spacing: -0.5px;
+  color: var(--text-muted);
+  letter-spacing: -0.3px;
 }
 
 .description {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   max-width: 650px;
   line-height: 1.7;
@@ -142,41 +111,40 @@
 }
 
 .btn {
-  padding: 14px 28px;
+  padding: 12px 26px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
 }
 
 .primary-btn {
-  background: var(--accent-green);
+  background: var(--text-main);
   color: var(--bg-main);
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 14px var(--shadow-neon);
 }
 
 .primary-btn:hover {
   transform: translateY(-2px);
-  background: #1eb053;
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+  opacity: 0.9;
+  box-shadow: 0 6px 20px var(--shadow-neon);
 }
 
 .secondary-btn {
   background: transparent;
   color: var(--text-main);
-  border: 1px solid var(--border-color);
+  border-color: var(--border-color);
 }
 
 .secondary-btn:hover {
   transform: translateY(-2px);
-  border-color: var(--accent-blue);
-  background: rgba(59, 130, 246, 0.05);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+  border-color: var(--text-main);
+  background: var(--bg-hover);
 }
 
 /* Social links styling */
@@ -195,9 +163,8 @@
 }
 
 .social-link:hover {
-  color: var(--accent-green);
+  color: var(--text-main);
   transform: translateY(-3px);
-  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5));
 }
 
 /* Responsive Scaling */
@@ -206,20 +173,20 @@
     padding-top: 100px;
   }
   .hero-titles h1 {
-    font-size: 2.8rem;
+    font-size: 2.1rem;
   }
   .hero-titles h2 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .hero-header {
     gap: 1.2rem;
   }
   .avatar-fallback {
-    width: 90px;
-    height: 90px;
+    width: 75px;
+    height: 75px;
   }
   .avatar-fallback span {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .description {
     font-size: 1rem;
@@ -238,20 +205,17 @@
     gap: 1rem;
   }
   .hero-titles h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   .hero-titles h2 {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
   .avatar-fallback {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
   }
   .avatar-fallback span {
-    font-size: 1.5rem;
-  }
-  .greeting {
-    font-size: 0.95rem;
+    font-size: 1.3rem;
   }
   .description {
     font-size: 0.9rem;
