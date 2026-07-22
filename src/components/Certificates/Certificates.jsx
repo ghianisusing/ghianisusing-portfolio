@@ -36,11 +36,11 @@ function Certificates() {
     return (
         <section id="certificates" className="certificates">
             <div className="section-container">
-                <h2 className="section-title scroll-reveal">Certifications</h2>
-                <p className="section-subtitle scroll-reveal">Credentials and training certificates</p>
+                <h2 className="section-title">Certifications</h2>
+                <p className="section-subtitle">Credentials and training certificates</p>
 
                 {certificates.length > 0 ? (
-                    <div className="certificates-grid scroll-reveal-stagger">
+                    <div className="certificates-grid">
                         {certificates.map((cert, index) => (
                             <a
                                 href={cert.link}
@@ -61,7 +61,7 @@ function Certificates() {
                         ))}
                     </div>
                 ) : (
-                    <div className="cert-empty scroll-reveal">
+                    <div className="cert-empty">
                         <div className="cert-empty-icon">🏆</div>
                         <h3>Certificates Coming Soon</h3>
                         <p>Currently working on earning certifications. This section will be updated once credentials are available.</p>

@@ -5,7 +5,7 @@ import { handleAnchorClick } from "../../utils/smoothScroll";
 function Hero() {
     return (
         <section className="hero" id="home">
-            <div className="hero-container scroll-reveal">
+            <div className="hero-container">
                 <div className="hero-content">
                     <p className="greeting">👋 Hi, I'm</p>
                     

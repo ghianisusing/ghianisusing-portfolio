@@ -10,12 +10,9 @@ import Projects from "./components/Projects/Projects";
 import Certificates from "./components/Certificates/Certificates";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import { useScrollReveal } from "./hooks/useScrollReveal";
 
 function App() {
   const [loading, setLoading] = useState(true);
-
-  useScrollReveal(!loading);
 
   useEffect(() => {
     if (loading) {
@@ -30,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div className={`main-layout ${loading ? "" : "main-layout--visible"}`}>
+      <div className="main-layout">
         <Navbar />
         <Hero />
         <About />

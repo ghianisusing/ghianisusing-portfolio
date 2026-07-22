@@ -49,7 +49,7 @@ function Skills() {
     return (
         <section className="skills" id="skills">
             <div className="skills-container">
-                <div className="skills-header scroll-reveal">
+                <div className="skills-header">
                     <h2 className="section-title">Technologies & Tools</h2>
                     <button className="see-all-btn" onClick={() => setIsModalOpen(true)}>
                         See All
@@ -57,7 +57,7 @@ function Skills() {
                 </div>
 
                 {/* Infinite Marquee Loop */}
-                <div className="marquee-wrapper scroll-reveal">
+                <div className="marquee-wrapper">
                     <div className="marquee-content">
                         {/* Render the array twice to create an infinite scroll illusion */}
                         {[...technologies, ...technologies].map((tech, i) => (

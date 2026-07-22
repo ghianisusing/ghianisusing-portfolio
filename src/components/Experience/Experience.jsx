@@ -5,10 +5,10 @@ function Experience() {
     return (
         <section id="experience" className="experience">
             <div className="section-container">
-                <h2 className="section-title scroll-reveal">Education & Focus</h2>
-                <p className="section-subtitle scroll-reveal">My academic path and development track</p>
+                <h2 className="section-title">Education & Focus</h2>
+                <p className="section-subtitle">My academic path and development track</p>
 
-                <div className="exp-grid scroll-reveal-stagger">
+                <div className="exp-grid">
 
                     {/* Education */}
                     <div className="exp-block">

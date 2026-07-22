@@ -73,3 +73,18 @@
     font-size: 0.85rem;
   }
 }
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 4%;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .nav-links {
+    gap: 0.8rem;
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+}

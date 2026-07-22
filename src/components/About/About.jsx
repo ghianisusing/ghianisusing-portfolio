@@ -6,17 +6,17 @@ function About() {
 
             <div className="about-container">
 
-                <h2 className="section-title scroll-reveal">
+                <h2 className="section-title">
                     About Me
                 </h2>
 
-                <p className="about-text scroll-reveal">
+                <p className="about-text">
                     I'm a <strong>BS Computer Science student</strong> with a passion for full-stack web development.
                     I enjoy building modern, responsive applications using React, Django, JavaScript, and Python, and I'm always eager
                     to learn new technologies and improve my skills.
                 </p>
 
-                <div className="about-cards scroll-reveal-stagger">
+                <div className="about-cards">
 
                     <div className="about-card">
                         <h3>🎓 Education</h3>

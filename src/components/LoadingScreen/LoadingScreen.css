@@ -348,3 +348,18 @@
     }
 
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loading-window {
+    width: 95%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-window {
+    width: 98%;
+    border-radius: 8px;
+  }
+}

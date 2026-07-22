@@ -245,3 +245,14 @@
     padding: 24px;
   }
 }
+
+@media (max-width: 480px) {
+  .info-card, 
+  .contact-form-wrapper {
+    padding: 16px;
+  }
+  
+  .info-item {
+    padding: 16px 20px;
+  }
+}

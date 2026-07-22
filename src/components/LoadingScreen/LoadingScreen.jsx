@@ -78,14 +78,14 @@ function LoadingScreen({ finishLoading }) {
 
                 const tl = gsap.timeline();
 
-                // Shrink and fade the terminal window first
+                // Shrink and fade the terminal window
                 tl.to(".loading-window", {
                     scale: 0.8,
                     opacity: 0,
                     duration: 0.4,
                     ease: "power2.inOut"
                 })
-                // Then shatter the background pixel grid!
+                // Shatter the background pixel grid
                 .to(".pixel-block", {
                     scale: 0,
                     opacity: 0,
@@ -94,17 +94,9 @@ function LoadingScreen({ finishLoading }) {
                         amount: 0.8,
                         from: "random"
                     },
-                    ease: "power2.inOut"
-                }, "-=0.1")
-                // Reveal main layout concurrently
-                .fromTo(".main-layout", {
-                    opacity: 0
-                }, {
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: "power3.out",
+                    ease: "power2.inOut",
                     onComplete: finishLoading
-                }, "-=1.0"); // Align with the start of the pixel dissolve
+                }, "-=0.1");
             }
 
         }, 50);

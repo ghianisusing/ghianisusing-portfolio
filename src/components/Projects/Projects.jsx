@@ -53,10 +53,10 @@ function Projects() {
     return (
         <section id="projects" className="projects">
             <div className="section-container">
-                <h2 className="section-title scroll-reveal">Featured Projects</h2>
-                <p className="section-subtitle scroll-reveal">Click on a project to see more details</p>
+                <h2 className="section-title">Featured Projects</h2>
+                <p className="section-subtitle">Click on a project to see more details</p>
 
-                <div className="projects-grid scroll-reveal-stagger">
+                <div className="projects-grid">
                     {projectsData.map((project, index) => (
                         <div
                             className="project-card"

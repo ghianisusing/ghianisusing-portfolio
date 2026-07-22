@@ -7,12 +7,12 @@ function Contact() {
     return (
         <section id="contact" className="contact">
             <div className="section-container">
-                <h2 className="section-title scroll-reveal">Get In Touch</h2>
-                <p className="section-subtitle scroll-reveal">Feel free to reach out for opportunities or questions</p>
+                <h2 className="section-title">Get In Touch</h2>
+                <p className="section-subtitle">Feel free to reach out for opportunities or questions</p>
 
                 <div className="contact-layout">
                     {/* Left: Info */}
-                    <div className="contact-info scroll-reveal">
+                    <div className="contact-info">
                         <div className="info-card">
                             <h3>Connect With Me</h3>
 
